@@ -45,6 +45,7 @@ This endpoint will return the selected song. For example, open in your browser t
 
 This is the initial CRUD of the application with only a part of it. To improve this application, these are some of the steps that we should do:
 
+- Probably the name should be the first thing to improve!
 - Add at least some end to end tests for the basic features added and once we have business logic in the application add also unit and integration tests for the features added.
 - Parametrize the database connection.
 - Move logic from controller to use cases / services.
