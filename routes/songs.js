@@ -6,7 +6,8 @@ function toSongView(song) {
   return {
     id: song._id,
     title: song.title,
-    length: song.length
+    length: song.length,
+    file: song.file
   }
 }
 
@@ -16,10 +17,7 @@ router.get('/songs', function(req, res, next) {
 
   SongRepository.list(page, pageSize).then(results => {
     res.json(results.map(toSongView))
-  }).catch(err => {
-    res.status(500);
-    res.json({ message: err.message, error: err });
-  })
+  }).catch(next)
 });
 
 module.exports = router;
