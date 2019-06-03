@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('laurafy:server');
 var http = require('http');
+var mongoose = require('mongoose');
 
 /**
  * Get port from environment and store in Express.
@@ -21,13 +22,20 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
-/**
- * Listen on provided port, on all network interfaces.
- */
+mongoose.connect('mongodb://mongo:27017/laurafy', { keepAlive: true, keepAliveInitialDelay: 300000 }, (error) => {
+  if (error) {
+    console.error('Error starting: ', error);
+    return
+  }
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+  /**
+   * Listen on provided port, on all network interfaces.
+   */
+
+  server.listen(port);
+  server.on('error', onError);
+  server.on('listening', onListening);
+ })
 
 /**
  * Normalize a port into a number, string, or false.
