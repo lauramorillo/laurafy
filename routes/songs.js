@@ -1,23 +1,12 @@
-const express = require('express');
-const router = express.Router();
-const SongRepository = require('../repositories/songs'); 
+const SongService = require('../services/songs');
+const SongView = require('./view/song');
 
-function toSongView(song) {
-  return {
-    id: song._id,
-    title: song.title,
-    length: song.length,
-    file: song.file
-  }
-}
-
-router.get('/songs', function(req, res, next) {
+module.exports.list = (req, res, next) => {
   const page = parseInt(req.query.page, 10) || 1
   const pageSize = parseInt(req.query.pageSize) || 10
 
-  SongRepository.list(page, pageSize).then(results => {
-    res.json(results.map(toSongView))
-  }).catch(next)
-});
 
-module.exports = router;
+  SongService.list(page, pageSize).then(results => {
+    res.json(results.map(SongView.transformToListViewItem))
+  }).catch(next)
+};
