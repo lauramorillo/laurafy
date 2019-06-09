@@ -12,7 +12,7 @@ module.exports.start = () => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
 
-  app.use('/play', express.static(path.join(__dirname, 'songs')));
+  app.use('/play', express.static(path.join(__dirname, '../songs')));
   app.use('/', indexRouter);
 
   app.use(ErrorHandler.handleNotFound);
