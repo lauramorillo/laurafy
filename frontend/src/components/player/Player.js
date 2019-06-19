@@ -1,9 +1,9 @@
 import React from "react";
-import ReactAudioPlayer from 'react-audio-player';
+import ReactAudioPlayer from "react-audio-player";
 
 function Player(props) {
   return (
-    <ReactAudioPlayer src={props.src} autoPlay controls />
+    <ReactAudioPlayer style={{ width: "100%" }} src={props.src} autoPlay controls />
   )
 }
 
