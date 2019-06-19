@@ -12,7 +12,7 @@ const songSchema = new Schema({
 const Song = mongoose.model('Song', songSchema);
 
 module.exports.list = async (page, pageSize) => {
-  const recordsToSkip = (page - 1) * pageSize;
+  const recordsToSkip = page * pageSize;
   const songs = await Song.find({}).skip(recordsToSkip).limit(pageSize)
   return songs.map(song => new SongModel(song._id, song));
 }
