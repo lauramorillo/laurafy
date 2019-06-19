@@ -2,6 +2,7 @@ FROM node:12
 
 WORKDIR /home/node/app
 
+RUN yarn global add nodemon
 ADD package.json yarn.lock /code/
 
 RUN yarn install --pure-lockfile

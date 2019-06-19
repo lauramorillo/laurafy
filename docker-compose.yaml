@@ -9,7 +9,7 @@ services:
     volumes:
       - ./backend:/home/node/app
       - /home/node/app/node_modules
-    command: "yarn start"
+    command: "yarn start.dev"
     depends_on:
       - mongo-seed
   
