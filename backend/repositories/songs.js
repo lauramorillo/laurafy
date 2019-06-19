@@ -16,3 +16,7 @@ module.exports.list = async (page, pageSize) => {
   const songs = await Song.find({}).skip(recordsToSkip).limit(pageSize)
   return songs.map(song => new SongModel(song._id, song));
 }
+
+module.exports.total = async () => {
+  return Song.count();
+}
