@@ -1,15 +1,15 @@
 version: "2"
 services:
-  app:
-    build: .
+  backend:
+    build: ./backend
     expose:
       - "3000"
     ports:
       - "3000:3000"
     volumes:
-      - .:/home/node/app
+      - ./backend:/home/node/app
       - /home/node/app/node_modules
-    command: "npm start"
+    command: "yarn start"
     depends_on:
       - mongo-seed
   
@@ -17,7 +17,20 @@ services:
     image: mongo:4.0
     
   mongo-seed:
-    build: ./mongo-seed
+    build: ./backend/mongo-seed
     depends_on:
       - mongo
+
+  frontend:
+    build: ./frontend
+    expose:
+      - "3001"
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./frontend:/home/node/app
+      - /home/node/app/node_modules
+    command: "yarn start"
+    depends_on:
+      - mongo-seed
     

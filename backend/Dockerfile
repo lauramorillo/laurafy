@@ -2,9 +2,9 @@ FROM node:12
 
 WORKDIR /home/node/app
 
-COPY package*.json ./
+ADD package.json yarn.lock /code/
 
-RUN npm install
+RUN yarn install --pure-lockfile
 
 COPY . .
 
