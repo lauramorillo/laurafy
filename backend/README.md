@@ -17,24 +17,25 @@ You will find two different endpoints available at the moment:
 This endpoint will return the list of songs. You can provide the parameters `page` and `pageSize` to paginate the results. For example:
 
 ```console
-curl 'http://localhost:3000/songs?page=1&pageSize=2'
+curl 'http://localhost:3000/songs?page=0&pageSize=2'
 ```
 
 Will return:
 ```json
-[
-  {
-    "id":"5cf5762f7479b45ebeb77f6b",
-    "title":"Queen - Bohemian Rhapsody",
-    "length":366,
-    "file":"queen_bohemian_rhapsody.mp3"
-  }, {
-    "id":"5cf5762f7479b45ebeb77f6c",
-    "title":"Survivor - Eye Of The Tiger",
-    "length":250,
-    "file":"survivor_eye_of_the_tiger.mp3"
-  }
-]
+{
+  "total":3,
+  "songs":[
+    {
+      "title":"Let It Go",
+      "length":243,
+      "file":"frozen_let_it_go.mp3"
+    },{
+      "title":"Bohemian Rhapsody",
+      "length":366,
+      "file":"queen_bohemian_rhapsody.mp3"
+    }
+  ]
+}
 ```
 
 ### Play

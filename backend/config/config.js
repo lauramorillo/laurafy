@@ -7,3 +7,8 @@ module.exports.database = {
   server: process.env.MONGO_SERVER || 'mongo',
   database: process.env.DATABASE || 'laurafy'
 };
+
+module.exports.spotify = {
+  clientId: process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET
+}

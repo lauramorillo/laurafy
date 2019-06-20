@@ -12,6 +12,10 @@ services:
     command: "yarn start.dev"
     depends_on:
       - mongo-seed
+    environment:
+      CLIENT_ID: 
+      CLIENT_SECRET:
+
   
   mongo:
     image: mongo:4.0
