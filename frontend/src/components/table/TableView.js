@@ -12,11 +12,14 @@ function TableView(props) {
         {
           Header: "Title",
           accessor: "title"
+        },
+        {
+          Header: "Artist",
+          accessor: "artist"
         }
       ]}
       defaultPageSize={10}
       className="-striped -highlight"
-      loading={props.loading}
       showPagination={true}
       showPaginationTop={false}
       showPaginationBottom={true}
