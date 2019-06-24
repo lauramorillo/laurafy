@@ -28,7 +28,4 @@ services:
     volumes:
       - ./frontend:/home/node/app
       - /home/node/app/node_modules
-    command: "yarn start"
-    depends_on:
-      - mongo-seed
-    
+    command: "yarn start"    
