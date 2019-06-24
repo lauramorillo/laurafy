@@ -11,8 +11,14 @@ function getSongs(page, pageSize, handleRetrievedData) {
 }
 
 function getSongUrl(song) {
-  return `${SERVER_URL}/play/${song.file}`
+  return song.url
+}
+
+function uploadSongUrl() {
+  console.log('URL: ', `${SERVER_URL}/upload`);
+  return `${SERVER_URL}/upload`
 }
 
 module.exports.getSongs = getSongs
 module.exports.getSongUrl = getSongUrl
+module.exports.uploadSongUrl = uploadSongUrl

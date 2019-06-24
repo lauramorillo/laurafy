@@ -1,7 +1,8 @@
 const request = require('request-promise');
 const Song = require('../models/song');
+const config = require('../config/config').spotify;
 
-module.exports.authenticate = (config) => {
+module.exports.authenticate = () => {
   const data = `${config.clientId}:${config.clientSecret}`;  
   const buff = Buffer.from(data);  
   const base64data = buff.toString('base64');
@@ -19,7 +20,13 @@ module.exports.authenticate = (config) => {
   });
 }
 
-module.exports.getSongMetadata = (token, song) => {
+module.exports.getSongMetadata = async (song, tokenAuth) => {
+  let token = tokenAuth;
+  if (!tokenAuth) {
+    const tokenResponse = await this.authenticate();
+    token = tokenResponse.access_token;
+  }
+
   const songSearchTerm = song.replace(/_/g, " ");
   return request({
     uri: "https://api.spotify.com/v1/search",

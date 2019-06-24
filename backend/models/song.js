@@ -11,6 +11,7 @@ class Song {
     get title() { return this._title }
     get length() { return this._length }
     get file() { return `${this._key}.mp3` }
+    get url() { return `https://laurafy.s3.eu-west-3.amazonaws.com/${this.file}`}
 }
 
 module.exports = Song;

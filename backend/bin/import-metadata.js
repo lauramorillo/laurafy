@@ -9,7 +9,7 @@ const songs = ["frozen_let_it_go", "queen_bohemian_rhapsody", "survivor_eye_of_t
 function requestAllSongs(token) {
   const songsRequests = []
   songs.forEach(song => {
-    const songPromise = Spotify.getSongMetadata(token, song)
+    const songPromise = Spotify.getSongMetadata(song, token)
       .catch(err => {
         console.log('ERR: ', err);
         return new Song({ key: song })

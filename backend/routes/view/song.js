@@ -3,6 +3,7 @@ module.exports.transformToListViewItem = (song) => {
     title: song.title,
     length: song.length,
     artist: song.artist,
-    file: song.file
+    file: song.file,
+    url: song.url
   };
 };

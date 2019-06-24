@@ -11,4 +11,7 @@ COPY . .
 
 EXPOSE 3000
 
+ADD aws_credentials /home/node/.aws/credentials
+
+USER node
 CMD ["npm", "start"]
