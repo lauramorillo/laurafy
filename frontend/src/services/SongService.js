@@ -15,7 +15,6 @@ function getSongUrl(song) {
 }
 
 function uploadSongUrl() {
-  console.log('URL: ', `${SERVER_URL}/upload`);
   return `${SERVER_URL}/upload`
 }
 

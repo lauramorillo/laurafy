@@ -21,9 +21,8 @@ const useStyles2 = makeStyles(theme => ({
   },
 }));
 
-export default function TableView(props) {
+function SongTable(props) {
   const classes = useStyles2();
-  
   return (
     <Paper className={classes.root}>
       <div className={classes.tableWrapper}>
@@ -32,9 +31,9 @@ export default function TableView(props) {
             {props.data.map(row => (
               <TableRow key={row.file} onClick={() => props.onSongSelected(row)}>
                 <TableCell component="th" scope="row">
-                  {row.title}
+                  {row.title || row.file}
                 </TableCell>
-                <TableCell>{row.artist}</TableCell>
+                <TableCell>{row.artist || 'Unknown'}</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -54,3 +53,5 @@ export default function TableView(props) {
     </Paper>
   );
 }
+
+export default SongTable;
