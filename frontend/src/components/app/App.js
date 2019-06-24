@@ -41,7 +41,7 @@ class App extends React.Component {
   }
 
   handleChangeRowsPerPage(event) {
-    this.setState({ rowsPerPage: parseInt(event.target.value, 10) }, this.fetchData);
+    this.setState({ rowsPerPage: parseInt(event.target.value, 10), page: 0 }, this.fetchData);
   }
 
   componentDidMount() {

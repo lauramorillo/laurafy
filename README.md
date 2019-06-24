@@ -28,3 +28,5 @@ This is the initial CRUD of the application with only a part of it. To improve t
 - Add more information about the song being played (album image, for example).
 - Use Redux to handle when grid data needs to be updated.
 - Add scroll bar to grid to ensure the upload component is always visible.
+- Add propTypes for all the components.
+
