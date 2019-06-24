@@ -12,3 +12,7 @@ module.exports.spotify = {
   clientId: process.env.SPOTIFY_CLIENT_ID,
   clientSecret: process.env.SPOTIFY_CLIENT_SECRET
 }
+
+module.exports.amazon = {
+  bucket: process.env.S3_BUCKET || 'laurafy'
+}

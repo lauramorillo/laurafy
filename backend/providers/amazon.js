@@ -1,10 +1,12 @@
-var AWS = require('aws-sdk');
-var fs = require("fs");
+const AWS = require('aws-sdk');
+const fs = require('fs');
+const config = require('../config/config').amazon;
+const BUCKET = config.bucket;
 
 module.exports.uploadFile = async (file) => {
   const s3 = new AWS.S3({ apiVersion: '2006-03-01' });
   const body = await getBody(file);
-  const objectParams = {Bucket: 'laurafy', Key: file.name, Body: body};
+  const objectParams = {Bucket: BUCKET, Key: file.name, Body: body};
   return s3.putObject(objectParams).promise().then(returl => 'www.google.es');
 }
 
@@ -18,4 +20,8 @@ function getBody(file) {
       resolve(data);
     })
   );
+}
+
+module.exports.getUrl = (fileName) => {
+  return `https://${BUCKET}.s3.eu-west-3.amazonaws.com/${fileName}`
 }
