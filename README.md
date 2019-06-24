@@ -17,3 +17,13 @@ Once everything is configured, start your application with
 ```console
 docker-compose up -d
 ```
+
+## Improvements
+
+This is the initial CRUD of the application with only a part of it. To improve this application, these are some of the steps that we should do:
+
+- Probably the name should be the first thing to improve!
+- Add at least some end to end tests for the basic features added and once we have business logic in the application add also unit and integration tests for the features added.
+- Add validations to the parameters received.
+- Add more information about the song being played (album image, for example).
+- Use Redux to handle when grid data needs to be updated.

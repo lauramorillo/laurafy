@@ -28,18 +28,10 @@ Will return:
 }
 ```
 
-### Play
+### Upload
 
-This endpoint will return the selected song. For example, open in your browser the url http://localhost:3000/play/survivor_eye_of_the_tiger.mp3 to play the song.
+This endpoint will receive a file with a song to be added to the library. The file is uploaded to the Amazon Bucket and the meta information associated to the song is loaded from Spotify.
 
-## Improvements
-
-This is the initial CRUD of the application with only a part of it. To improve this application, these are some of the steps that we should do:
-
-- Probably the name should be the first thing to improve!
-- Add at least some end to end tests for the basic features added and once we have business logic in the application add also unit and integration tests for the features added.
-- Parametrize the database connection.
-- Move logic from controller to use cases / services.
-- Add validations to the parameters received.
-- Create a volume for the songs instead of adding them to the container.
-- Add nodemon to speed up development.
+```console
+curl 'http://localhost:3000/upload' -H 'Referer: http://localhost:3001/' -H 'Origin: http://localhost:3001' -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36' -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundary1IhVDOegwxpwwfrD' --data-binary $'------WebKitFormBoundary1IhVDOegwxpwwfrD\r\nContent-Disposition: form-data; name="filepond"\r\n\r\n{}\r\n------WebKitFormBoundary1IhVDOegwxpwwfrD\r\nContent-Disposition: form-data; name="filepond"; filename="The Beatles - Hey Jude.mp3"\r\nContent-Type: audio/mp3\r\n\r\n\r\n------WebKitFormBoundary1IhVDOegwxpwwfrD--\r\n' --compressed
+```
